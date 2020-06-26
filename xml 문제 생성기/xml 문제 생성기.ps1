@@ -92,7 +92,7 @@ $answer.Multiline             = $true
 $answer.WordWrap              = $true
 
 $Label1                          = New-Object system.Windows.Forms.Label
-$Label1.text                     = "πÆ¡¶"
+$Label1.text                     = "Î¨∏Ï†ú"
 $Label1.AutoSize                 = $true
 $Label1.width                    = 25
 $Label1.height                   = 10
@@ -100,7 +100,7 @@ $Label1.location                 = New-Object System.Drawing.Point(60,142)
 $Label1.Font                     = 'Microsoft Sans Serif,19'
 
 $Label2                          = New-Object system.Windows.Forms.Label
-$Label2.text                     = "¥‰"
+$Label2.text                     = "Îãµ"
 $Label2.AutoSize                 = $true
 $Label2.width                    = 25
 $Label2.height                   = 10
@@ -116,7 +116,7 @@ $Label3.location                 = New-Object System.Drawing.Point(1,119)
 $Label3.Font                     = 'Microsoft Sans Serif,11'
 
 $Label4                          = New-Object system.Windows.Forms.Label
-$Label4.text                     = "∫Ø∞Ê"
+$Label4.text                     = "Î≥ÄÍ≤Ω"
 $Label4.AutoSize                 = $true
 $Label4.width                    = 25
 $Label4.height                   = 10
@@ -124,7 +124,7 @@ $Label4.location                 = New-Object System.Drawing.Point(1,193)
 $Label4.Font                     = 'Microsoft Sans Serif,12'
 
 $Label5                          = New-Object system.Windows.Forms.Label
-$Label5.text                     = "¿Ã¿¸"
+$Label5.text                     = "Ïù¥Ï†Ñ"
 $Label5.AutoSize                 = $true
 $Label5.width                    = 25
 $Label5.height                   = 10
@@ -132,7 +132,7 @@ $Label5.location                 = New-Object System.Drawing.Point(1,233)
 $Label5.Font                     = 'Microsoft Sans Serif,12'
 
 $Label6                          = New-Object system.Windows.Forms.Label
-$Label6.text                     = "¥Ÿ¿Ω"
+$Label6.text                     = "Îã§Ïùå"
 $Label6.AutoSize                 = $true
 $Label6.width                    = 25
 $Label6.height                   = 10
@@ -165,63 +165,63 @@ $chg_num.Font                    = 'Microsoft Sans Serif,14'
 $chg_num.Enabled                 = $false 
 
 $reg                             = New-Object system.Windows.Forms.Button
-$reg.text                        = "µÓ∑œ«œ±‚"
+$reg.text                        = "Îì±Î°ùÌïòÍ∏∞"
 $reg.width                       = 110
 $reg.height                      = 40
 $reg.location                    = New-Object System.Drawing.Point(578,761)
 $reg.Font                        = 'Microsoft Sans Serif,12'
 
 $load                             = New-Object system.Windows.Forms.Button
-$load.text                        = "∫“∑Øø¿±‚"
+$load.text                        = "Î∂àÎü¨Ïò§Í∏∞"
 $load.width                       = 110
 $load.height                      = 40
 $load.location                    = New-Object System.Drawing.Point(708,761)
 $load.Font                        = 'Microsoft Sans Serif,12'
 
 $upb                             = New-Object system.Windows.Forms.Button
-$upb.text                        = "°„"
+$upb.text                        = "‚ñ≤"
 $upb.width                       = 55
 $upb.height                      = 40
 $upb.location                    = New-Object System.Drawing.Point(15,306)
 $upb.Font                        = 'Microsoft Sans Serif,16'
 
 $dob                             = New-Object system.Windows.Forms.Button
-$dob.text                        = "°Â"
+$dob.text                        = "‚ñº"
 $dob.width                       = 55
 $dob.height                      = 40
 $dob.location                    = New-Object System.Drawing.Point(75,306)
 $dob.Font                        = 'Microsoft Sans Serif,16'
 
 $reb                             = New-Object system.Windows.Forms.Button
-$reb.text                        = "¢¡"
+$reb.text                        = "‚äô"
 $reb.width                       = 45
 $reb.height                      = 30
 $reb.location                    = New-Object System.Drawing.Point(50,351)
 $reb.Font                        = 'Microsoft Sans Serif,14'
 
 $xml_open                             = New-Object system.Windows.Forms.Button
-$xml_open.text                        = "XML ø≠±‚"
+$xml_open.text                        = "XML Ïó¥Í∏∞"
 $xml_open.width                       = 110
 $xml_open.height                      = 40
 $xml_open.location                    = New-Object System.Drawing.Point(18,400)
 $xml_open.Font                        = 'Microsoft Sans Serif,14'
 
 $xml_copy                             = New-Object system.Windows.Forms.Button
-$xml_copy.text                        = "XML ∫Øºˆ ∫πªÁ"
+$xml_copy.text                        = "XML Î≥ÄÏàò Î≥µÏÇ¨"
 $xml_copy.width                       = 110
 $xml_copy.height                      = 27
 $xml_copy.location                    = New-Object System.Drawing.Point(18,450)
 $xml_copy.Font                        = 'Microsoft Sans Serif,10'
 
 $xml_load                             = New-Object system.Windows.Forms.Button
-$xml_load.text                        = "XML ∏∏µÈ±‚"
+$xml_load.text                        = "XML ÎßåÎì§Í∏∞"
 $xml_load.width                       = 110
 $xml_load.height                      = 27
 $xml_load.location                    = New-Object System.Drawing.Point(18,580)
 $xml_load.Font                        = 'Microsoft Sans Serif,10'
 
 $clear_data                             = New-Object system.Windows.Forms.Button
-$clear_data.text                        = "√¢ ∫ÒøÏ±‚"
+$clear_data.text                        = "Ï∞Ω ÎπÑÏö∞Í∏∞"
 $clear_data.width                       = 110
 $clear_data.height                      = 27
 $clear_data.location                    = New-Object System.Drawing.Point(18,490)
@@ -256,7 +256,7 @@ function add_node
                     $prob.Text = ""
                     $answer.Text = ""
                     $max_num.Text = $node_num + 1
-                    $label3.Text = "πÆ¡¶ ∞≥ºˆ: "+ $node_num + "∞≥"
+                    $label3.Text = "Î¨∏Ï†ú Í∞úÏàò: "+ $node_num + "Í∞ú"
                     
                     
                 } elseif( [int]$max_num.Text -gt [int]$pro_num.Text  ) 
@@ -267,11 +267,11 @@ function add_node
                     
                     $Load_xml.SelectSingleNode($pro_page) | % { $_.'#text' = $prob.Text -replace "`n", "<br>" }
                     $Load_xml.SelectSingleNode($ans_page) | % { $_.'#text' = $answer.Text -replace "`n", "<br>"} 
-                  } else { [System.Windows.Forms.MessageBox]::Show('æ¯¥¬ πÆ¡¶¿‘¥œ¥Ÿ.') } 
+                  } else { [System.Windows.Forms.MessageBox]::Show('ÏóÜÎäî Î¨∏Ï†úÏûÖÎãàÎã§.') } 
                   
                   $Load_xml.Save($file_name)
                 
-        } else { [System.Windows.Forms.MessageBox]::Show('πÆ¡¶ ∂«¥¬ ¥‰¿Ã ¿‘∑¬µ«¡ˆ æ æ“Ω¿¥œ¥Ÿ.')   }
+        } else { [System.Windows.Forms.MessageBox]::Show('Î¨∏Ï†ú ÎòêÎäî ÎãµÏù¥ ÏûÖÎ†•ÎêòÏßÄ ÏïäÏïòÏäµÎãàÎã§.')   }
 
         exist_chk
 }
@@ -293,7 +293,7 @@ function load_node
 
         $chg_num.Text = $pro_num.Text     
         
-      } else { [System.Windows.Forms.MessageBox]::Show('æ¯¥¬ πÆ¡¶¿‘¥œ¥Ÿ.') }
+      } else { [System.Windows.Forms.MessageBox]::Show('ÏóÜÎäî Î¨∏Ï†úÏûÖÎãàÎã§.') }
 
       exist_chk
 }
@@ -311,12 +311,12 @@ function exist_chk
    $tmp2 = $Load_xml.selectnodes($pro_page).'id' | select -Unique
    if ( $tmp.Count -ne $tmp2.Count )
    {
-    [System.Windows.Forms.MessageBox]::Show('¡ﬂ∫πµ» ≥ÎµÂ∏¶ πﬂ∞ﬂ«ﬂΩ¿¥œ¥Ÿ.')
+    [System.Windows.Forms.MessageBox]::Show('Ï§ëÎ≥µÎêú ÎÖ∏ÎìúÎ•º Î∞úÍ≤¨ÌñàÏäµÎãàÎã§.')
    }
    
 }
 
-$reg.Add_Click({ add_node; Copy-Item -Path "problem.xml" -Destination "D:\¡ˆ∞ÊπË\∞¯∫Œ∏¿Ω\problem.xml"})
+$reg.Add_Click({ add_node; Copy-Item -Path "problem.xml" -Destination "D:\ÏßÄÍ≤ΩÎ∞∞\Í≥µÎ∂ÄÎ™®Ïùå\problem.xml"})
 $load.Add_Click({ load_node  })
 
 $upb.Add_Click({ 
@@ -354,7 +354,7 @@ $browser   = [System.Diagnostics.Process]::Start("chrome.exe", $open_path)
 
 $xml_copy.Add_Click({
 
-$Load_xml_data_name = Read-host "∫πªÁ«“ ∆ƒ¿œ ¿Ã∏ß¿ª ¿‘∑¬«œººø‰."
+$Load_xml_data_name = Read-host "Î≥µÏÇ¨Ìï† ÌååÏùº Ïù¥Î¶ÑÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî."
 $Load_xml_data_name += '.xml'
 $Load_xml_path =  $scriptPath + '\' + $Load_xml_data_name
      
@@ -378,7 +378,7 @@ $xml_load.Add_Click({
      $word_db = $prob.Text -split "\n"
 
 
-     $Load_xml_data_name = Read-host "∏∏µÈ ∆ƒ¿œ ¿Ã∏ß¿ª ¿‘∑¬«œººø‰."
+     $Load_xml_data_name = Read-host "ÎßåÎì§ ÌååÏùº Ïù¥Î¶ÑÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî."
      $Load_xml_data_name += '.xml'
      $Load_xml_data_name =  $scriptPath + '\' + $Load_xml_data_name
      
@@ -424,7 +424,7 @@ $clear_data.Add_Click({
 
 $prob.Text = ""
 $answer.Text = ""
-
+$pro_num.Text = ""
 
 })
 
