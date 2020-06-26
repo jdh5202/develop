@@ -354,7 +354,7 @@ $browser   = [System.Diagnostics.Process]::Start("chrome.exe", $open_path)
 
 $xml_copy.Add_Click({
 
-$Load_xml_data_name = Read-host "복사할 파일 이름을 입력하세요."
+$Load_xml_data_name = "problem"
 $Load_xml_data_name += '.xml'
 $Load_xml_path =  $scriptPath + '\' + $Load_xml_data_name
      
