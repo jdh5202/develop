@@ -1,10 +1,11 @@
-﻿<center>
-<input type="button" value="문제 초기화" onclick="random_prob()" style="color: #fff; background:gray; font-size:2em; font-weight:bold;">
+
+<center>
+<input type="button" value="문제 초기화" onclick="random_prob();resize_cmd(); resize_ans_cmd();" style="color: #fff; background:gray; font-size:2em; font-weight:bold;">
 <input type="button" value="큰 화면으로 보기" onclick="full_scr()" style="color: #Eff; background:#50bcdf; font-size:2em; font-weight:bold;"><br />
 <input type="button" value="글씨 크기 최대" style="color: #afe; 
-background:skyblue; font-size:1em; font-weight:bold;" onclick="size_max()">
+background:skyblue; font-size:1em; font-weight:bold;" onclick="size_max();resize_cmd(); resize_ans_cmd();">
 <input type="button" value="글씨 크기 최소" class="size_min" style="color: #ffc; 
-background:skyblue; font-size:1em; font-weight:bold;" onclick="size_min()">
+background:skyblue; font-size:1em; font-weight:bold;" onclick="size_min();resize_cmd(); resize_ans_cmd();">
 <input type="button" value="글씨 크기 ↑" class="size_up" style="color: #afe; 
 background:skyblue; font-size:1em; font-weight:bold;">
 <input type="button" value="글씨 크기 ↓" class="size_do" style="color: #ffc; 
@@ -18,15 +19,15 @@ background:lightblue; font-size:1em; font-weight:bold;">
 <div id="answer_area"><font color="mediumturquoise" size="6px"><b>→ 답안지 ←
 
 </b></font></div>
-<textarea rows="5" cols="50" id="answer_text" placeholder="" autofocus="" required="" wrap="hard"></textarea><br /><br />
+<textarea rows="5" cols="50" id="answer_text" onkeydown="resize_ans_cmd()" placeholder="" autofocus="" required="" wrap="hard" style="height:67px;"></textarea><br /><br />
   
 
-<input type="button" id="view_ans" value="답안 보기" onclick="view_answer()" style="color: #fff; 
+<input type="button" id="view_ans" value="답안 보기" onclick="view_answer();resize_cmd(); resize_ans_cmd();" style="color: #fff; 
 background:blue; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5px 20px;">
 
 
-<input type="button" id="next_pro" value="다음 문제" onclick="next_prob()" style="color: #fff; background:green; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5px 20px;">
-<input type="button" id="prev_pro" value="이전 문제" onclick="prev_prob()" style="color: #ffE; background:lightgreen; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5px 20px;"><br /><br />
+<input type="button" id="next_pro" value="다음 문제" onclick="next_prob();resize_cmd(); resize_ans_cmd();" style="color: #fff; background:green; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5px 20px;">
+<input type="button" id="prev_pro" value="이전 문제" onclick="prev_prob();resize_cmd(); resize_ans_cmd();" style="color: #ffE; background:lightgreen; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5px 20px;"><br /><br />
   
 <div id="solv_prob"></div>
 
@@ -52,12 +53,11 @@ background:blue; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5
  
     </div>
 
-
 <style>
 textarea
 {
   width:829px;
-  height:222px;
+  overflow-y :hidden;
   font-weight:bold;
   color:#00004B;
   font-size:28px;
@@ -133,10 +133,23 @@ textarea
   height:800px;
 } 
 
-
 </style>
 
 <script>
+
+function resize_cmd() {
+resize($("#problem_text")[0]);
+}  
+function resize_ans_cmd() {
+resize($("#answer_text")[0]);
+}  
+function resize(obj) {
+  //alert(obj);
+  obj.style.height = "1px";
+  obj.style.height = (40+obj.scrollHeight)+"px";
+}
+
+
 var xml = "";
 
 // here
@@ -185,9 +198,9 @@ function view_answer()
     
     $("#answer_text").val( my_ans );
     but_init();
+    
   }
-  
-  
+
   
 }
 function next_prob()
@@ -209,7 +222,7 @@ function next_prob()
            $("#problem_area").html("");
            $("#solv_prob").html("<font color='blue'>👍 " + prob_cnt + " 문제를 모두 푸셨습니다 👍</font><br /><font color='#2e77bb'>문제를 다시 풀고 싶다면 상단에 문제 초기화 버튼을 눌러주세요. ^^</font> ");
          }
-   
+
 }
 function prev_prob()
 {
@@ -218,7 +231,8 @@ function prev_prob()
     --idx;
     but_init();
     prob_func();
-  }
+  } 
+  
 }
 function random_prob()
 { 
@@ -266,7 +280,7 @@ function prob_func()
   $("#answer_text").val("");
   $("#problem_area").html("<font color='dodgerblue' size='6px'><b>→ "+ (idx+1) +"번 문제 ←</b></font>"); 
   $("#problem_text").val( problem[random[idx]] );
- 
+
 }
 function replaceAll(str, searchStr, replaceStr) {
   return str.split(searchStr).join(replaceStr);
@@ -280,7 +294,7 @@ $(".size_do").click(function() {
     
     if ( num > 11 ) 	--num;
     $speech.css("fontSize",num);
-
+   resize_cmd(); resize_ans_cmd();
 });
 
 $(".size_up").click(function() {
@@ -291,7 +305,7 @@ $(".size_up").click(function() {
     
     if ( num < 28 ) 	++num;
     $speech.css("fontSize",num);
-  // alert(unit);
+   resize_cmd(); resize_ans_cmd();
 });
 
 function size_max()
@@ -309,14 +323,14 @@ function size_min()
 var problem_form1 = '<center><font size="10em" color="red"><b>문제</b></font></center>';
 var problem_form2 = '<center><font size="10em" color="blue"><b>답안</b></font></center>';
 
-var ans_view_but = '<center><br><br><br><br><br><br><br><br><br><br><br><input type="button" style="font-size:45px;" onclick="full_ans_click()" value="답안 보기"> </center>';
+var ans_view_but = '<center><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><input type="button" style="font-size:45px;" onclick="full_ans_click()" value="답안 보기"> </center>';
 
 
 function full_scr()
 {
   $('#myModal').show();
 
- var full_problem = replaceAll(problem[random[idx]],'\n','<br>');
+ var full_problem = replaceAll(problem[random[idx]],'\n','<br />');
   
   $(".modal-content").html(problem_form1 + "<font size='4em'>" +  full_problem + "</font>");
   
@@ -330,14 +344,12 @@ function close_pop(flag) {
 
 function full_ans_click() {
 
-  var full_answer = replaceAll(answer[random[idx]],'\n','<br>');
+  var full_answer = replaceAll(answer[random[idx]],'\n','<br />');
   
   
   $(".modal-content2").html(problem_form2 + "<font size='4em'>" +  full_answer + "</font>");
   
 };
- 
+
 
 </script>
-
-
