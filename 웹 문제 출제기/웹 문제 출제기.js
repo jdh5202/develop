@@ -137,6 +137,8 @@ textarea
 
 <script>
 
+$(document).ready(function () { setTimeout(function() { resize_cmd(); },100); });
+
 function resize_cmd() {
 resize($("#problem_text")[0]);
 }  
