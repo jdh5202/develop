@@ -56,7 +56,7 @@ background:blue; font-size:2em; font-weight:bold; border-radius:0.5em; padding:5
 <style>
 textarea
 {
-  width:829px;
+  width:729px;
   overflow-y :hidden;
   font-weight:bold;
   color:#00004B;
