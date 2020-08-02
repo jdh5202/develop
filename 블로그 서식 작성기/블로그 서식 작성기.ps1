@@ -1,3 +1,4 @@
+# utf18 LE
 Set-ExecutionPolicy Bypass # unrestricted
 
 #$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
@@ -316,9 +317,11 @@ $TextArea_zoom.Add_KeyDown({
                   {
                      if ( $i -le 4 )
                      {
-                     $paste | clip;
+                     Set-Clipboard $paste
                      } else {
-                     "ⓑ" + $paste + "ⓑ" | clip;
+                     
+		$spc_t = "ⓑ" + $paste + "ⓑ"
+		Set-Clipboard $spc_t
                      } [System.Windows.Forms.SendKeys]::SendWait("^v")
                      
                      break
@@ -1381,6 +1384,5 @@ if ( $CheckOpt3.Checked -eq $true )
 
 
 [void]$Form.ShowDialog()
-
 
 
