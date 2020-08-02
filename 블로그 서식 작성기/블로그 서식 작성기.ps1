@@ -1,4 +1,4 @@
-# utf18 LE
+# utf16 LE
 Set-ExecutionPolicy Bypass # unrestricted
 
 #$scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
