@@ -46,6 +46,7 @@ function execute()
   var Html = $("#result_content4");
   var Hex = $("#result_content5");
   var Unicode = $("#result_content6");
+  var Ascii = $("#result_content7");
    if ( data ) 
    {
     if ( way == "encode_mode")
@@ -58,6 +59,7 @@ function execute()
         Html.val($('<textarea/>').text(data).html());
         Hex.val(data.hexEncode());
         Unicode.val(charToUnicode(data));
+        Ascii.val(charToAscii(data));
         }
 
       }
@@ -71,6 +73,7 @@ function execute()
         Html.val($('<textarea/>').html(data).text());
         Hex.val(data.hexDecode());
         Unicode.val(UnicodeTochar(data));
+        Ascii.val(AsciiToChar(data));
         }
     }
    }
@@ -121,6 +124,28 @@ UnicodeTochar = function(str) {
   return result;
 }
 
+charToAscii = function(str) { 
+  
+  if (!str) return false;
+  var result = "";
+  for ( var i = 0; i< str.length; i++)
+  { 
+    result += str.charCodeAt(i)+',';
+  } 
+  return result.slice(0,-1); // last , delete
+}
+
+AsciiToChar = function(str) { 
+  
+  if (!str) return false;
+  var char = str.split(',');
+  var result = "";
+  for ( var i = 0; i< char.length; i++)
+  {
+    result += String.fromCharCode(char[i]);
+  } 
+  return result;
+}
 
 function reset_but()
 {
@@ -131,5 +156,6 @@ function reset_but()
   $("#result_content4").val('');
   $("#result_content5").val('');
   $("#result_content6").val('');
+  $("#result_content7").val('');
 }
 </script>
