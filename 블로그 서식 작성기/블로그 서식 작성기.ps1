@@ -9,7 +9,6 @@ Set-Location $scriptPath
 
 
 
-
 $default_css_code = "<style>
 #custom_code_text {
   font-size:13pt;
@@ -31,7 +30,6 @@ $default_css_code = "<style>
     color: #666;
     letter-spacing: 0px;
 }
-
 #custom_code_title {
     position: relative;
     margin: 20px 0 15px;
@@ -61,7 +59,6 @@ $default_css_code = "<style>
     padding: 2px 4px;
     font-weight: bold;
 }
-
 #custom_code_code {
     padding: 5px 7px 4px;
     font-size: 90%;
@@ -73,7 +70,6 @@ $default_css_code = "<style>
     border-bottom-width: 2px;
     box-shadow: inset 1px -1px 1px #f7f2f2, inset -1px 1px 1px #fffafa;
 }
-
 #custom_basic_code {
     font-weight:bold;
     display: inline-block;
@@ -87,7 +83,6 @@ $default_css_code = "<style>
     border-radius: 3px;
     box-shadow: inset 1px -1px 1px #fff, inset -1px 1px 1px #fff;
 }
-
 #custom_code_quote {
 position: relative;
 padding: 13px 30px 10px 40px;
@@ -307,14 +302,14 @@ $TextArea_zoom.Add_KeyDown({
          $char_code_paste2 = @('ⓑ','ⓒ','ⓜ','ⓠ','ⓢ','①','②','③','④','⑤')
          $char_code_paste1 = @('●','◎','▷','※','◈','⑥','⑦','⑧','⑨','⑩')    
          
-         $char_code_nkey   = @('1','2','3','4','5','6','7','8','9','0')
+         $char_code_nkey   = @('D1','D2','D3','D4','D5','D6','D7','D8','D9','D0')
          $char_code_pkey   = @('F1','F2','F3','F4','F5','F6','F7','F8','F9','F10')
 
             $i = 0
                foreach ( $paste in $char_code_paste2 )
-               {
+               {  
                   if ( $_.KeyCode -eq $char_code_pkey[$i] )
-                  {
+                  {  
                      if ( $i -le 4 )
                      {
                      Set-Clipboard $paste
@@ -327,18 +322,15 @@ $TextArea_zoom.Add_KeyDown({
                      break
                   }  $i++
                } 
-               
-            $i = 0
+            
+            $i = 0 
                foreach ( $paste in $char_code_paste1 )
-               {
+               {   
+              
                   if ( $_.KeyCode -eq $char_code_nkey[$i] -and $_.Control )
-                  {
-                     if ( $i -le 4 )
-                     {
-                     $paste | clip;
-                     } else {
-                     "ⓑ" + $paste + "ⓑ" | clip;
-                     } [System.Windows.Forms.SendKeys]::SendWait("^v")
+                  {  
+                      Set-Clipboard $paste
+                     [System.Windows.Forms.SendKeys]::SendWait("^v")
                      
                      break
                   }  $i++
@@ -996,7 +988,9 @@ function excute {
     $rep_boxes2    = @($rep_tag5,$rep_tag6,$rep_tag7,$rep_tag8,$rep_tag9)
     
     $text = $input_window.Text
-    
+    $text = $text -replace '<','&lt;'
+    $text = $text -replace '>','&gt;'
+
     # get replace data
     $symbol_boxes1 | % { if ( (exist_value -Data $_.Text) -eq $true ) { $symbol_text += $_.Text } }
     $rep_boxes1 | % { if ( (exist_value -Data $_.Text) -eq $true ) { $replace_tag    += $_.Text } }
@@ -1384,5 +1378,3 @@ if ( $CheckOpt3.Checked -eq $true )
 
 
 [void]$Form.ShowDialog()
-
-
