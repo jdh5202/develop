@@ -1,4 +1,6 @@
 <style>
+
+
 #alert-box {
   background-color: #ededed;
   position: relative;
@@ -44,7 +46,9 @@
   background-color: #ededed;
   border: 1px solid grey;
   margin: auto;
-  padding: 15px 10px 10px;
+  padding: 5px 10px 10px;
+  line-height:3;
+  word-break:break-all;
 }
 
 #code {
@@ -53,6 +57,7 @@
   border: 1px solid grey;
   margin: auto;
   padding: 15px 10px 10px;
+  line-height:3;
 }
 
 textarea {
@@ -81,5 +86,6 @@ input[type=text], select {
   border: 1px solid rgba(0,0,0,0.2);
   background:rgba(247,124,138,0.2);
 }
+
 
 </style>
