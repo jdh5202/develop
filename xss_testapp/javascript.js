@@ -180,11 +180,8 @@ function whitelist(xss_val)
      var tag = [];
 
      for ( var i = 0; i < filter_items.length; i++ ) { 
-
-    if ( filter_items[i].indexOf(':') == -1 )
       tag.push( filter_items[i] );
      } 
-
        var exp_var = '(' + tag.join('|') + ')';
 
      // apply tag
@@ -194,14 +191,17 @@ function whitelist(xss_val)
 
      var real_data = '';
      var filter_data = '';
+    
+     if ( xss_val.match(reg) )
+     {
+       $.each ( xss_val.match(reg) , function(i,res_data) {
 
-     $.each ( xss_val.match(reg) , function(i,res_data) {
+       real_data = res_data.replaceAll('&lt;','<')
+                 .replaceAll('&gt;','>');
+       xss_val = xss_val.replaceAll( res_data , real_data );
 
-     real_data = res_data.replaceAll('&lt;','<')
-               .replaceAll('&gt;','>');
-     xss_val = xss_val.replaceAll( res_data , real_data );
-
-     }); 
+       });
+     }
   
   } return xss_val;
 }
@@ -222,8 +222,14 @@ function codeOutput(xss_val) {
  
      $('#output-html a').on('click', function(e) {
 	
-       // event.preventDefault();
+		 var test_url = /(http|https):\\/\\/((\\w+)[.]).+/;
 
+   var url = test_url.test(e.target.href); 
+
+   if( url ){
+
+      e.preventDefault();
+    }
 	}); });<\/script>` );
     
     
@@ -273,6 +279,7 @@ $('#confirm-button').on('click', function(e) {
     
 	
  });
+
 
 });
 
