@@ -988,6 +988,7 @@ function excute {
     $rep_boxes2    = @($rep_tag5,$rep_tag6,$rep_tag7,$rep_tag8,$rep_tag9)
     
     $text = $input_window.Text
+    $text = $text -replace '&','&amp;'
     $text = $text -replace '<','&lt;'
     $text = $text -replace '>','&gt;'
 
