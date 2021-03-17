@@ -1,0 +1,91 @@
+<style>
+
+
+#alert-box {
+  background-color: #ededed;
+  position: relative;
+  width: 65%;
+  border: 1px solid grey;
+  padding: 20px 10px 10px;
+}
+#confirm {
+  background-color: #e5e5e5;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 38px;
+  bottom: 0;
+}
+
+#confirm-button {
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #ededed;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  top: 25%;
+  right: 20px;
+  width: 65px;
+}
+
+.input {
+  position: relative;
+  top: 25%;
+}
+
+.out {
+  min-height: 80px;
+  border: 1px solid silver;
+  background: #ddd;
+  margin-bottom: 2em;
+  color: #888;
+}
+
+#preview_html {
+  background-color: #ededed;
+  border: 1px solid grey;
+  margin: auto;
+  padding: 5px 10px 10px;
+  line-height:3;
+  word-break:break-all;
+}
+
+#code {
+  background-color: #000000;
+  color:white;
+  border: 1px solid grey;
+  margin: auto;
+  padding: 15px 10px 10px;
+  line-height:3;
+}
+
+textarea {
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#filter_div {
+  border: 1px solid rgba(0,0,0,0.2);
+  background:rgba(151,202,242,0.2);
+}
+
+#form_div {
+  border: 1px solid rgba(0,0,0,0.2);
+  background:rgba(247,124,138,0.2);
+}
+
+
+</style>
