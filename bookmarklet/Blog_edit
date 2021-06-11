@@ -1,0 +1,33 @@
+var leng = document.getElementsByClassName('tt_article_useless_p_margin')[0].childElementCount
+var result = []
+for ( var i=0; i<leng; i++)
+{
+
+var idv = document.getElementsByClassName('tt_article_useless_p_margin')[0].children[i].id;
+if ( idv == "custom_code_text" )
+{
+result+=document.getElementsByClassName('tt_article_useless_p_margin')[0].children[i].innerHTML;
+}
+}
+
+function copyToClip(text) {
+var textNode = document.createTextNode(text);
+document.body.appendChild(textNode);
+
+var range = document.createRange();
+var selection = window.getSelection;
+
+range.selectNodeContents(textNode);
+selection().removeAllRanges();
+selection().addRange(range);
+
+document.execCommand("copy");
+
+selection().removeAllRanges(range);
+document.body.removeChild(textNode);
+}
+
+copyToClip(result);
+
+
+javascript:(function()%7Bvar leng %3D document.getElementsByClassName('tt_article_useless_p_margin')%5B0%5D.childElementCount%3Bvar result %3D %5B%5D%3Bfor ( var i%3D0%3B i<leng%3B i%2B%2B)%7Bvar idv %3D document.getElementsByClassName('tt_article_useless_p_margin')%5B0%5D.children%5Bi%5D.id%3Bif ( idv %3D%3D "custom_code_text" )%7Bresult%2B%3Ddocument.getElementsByClassName('tt_article_useless_p_margin')%5B0%5D.children%5Bi%5D.innerHTML%3B%7D%7Dfunction copyToClip(text) %7Bvar textNode %3D document.createTextNode(text)%3Bdocument.body.appendChild(textNode)%3Bvar range %3D document.createRange()%3Bvar selection %3D window.getSelection%3Brange.selectNodeContents(textNode)%3Bselection().removeAllRanges()%3Bselection().addRange(range)%3Bdocument.execCommand("copy")%3Bselection().removeAllRanges(range)%3Bdocument.body.removeChild(textNode)%3B%7DcopyToClip(result)%7D)()
