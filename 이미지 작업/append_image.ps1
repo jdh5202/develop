@@ -18,7 +18,7 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
     $cache_img_size = ""
     if ( $img_dir -eq "w" ) { $cache_img_size = [String](([Int]$cache_file_x)+$white_space) + "x" + $cache_file_y }
     elseif ( $img_dir -eq "h" ) { $cache_img_size = $cache_file_x + "x" + [String](([int]$cache_file_y+$white_space)) }
-    
+
     # 임시 이미지 파일에 여백 추가
     ## 가로
     if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity west -composite $cache_file_name }
@@ -40,6 +40,9 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
     # 임시 이미지 파일 삭제
     Remove-Item $cache_file_name
 
+    # 출력
+    echo "Create $result_img_name"
+
 }
 
 
@@ -58,7 +61,7 @@ $right_img_y = magick identify -format '%h' $file_name2
     if ( $direction -eq 'h' ) 
     {
            # 오른쪽 이미지 가로 사이즈가 더 클 경우
-           if ( $left_img_x -lt $right_img_x ) 
+           if ( [int]$left_img_x -lt [int]$right_img_x ) 
            {
               marge -big_size_image $file_name1 -result_img_x $right_img_x -result_img_y $right_img_y -img_file $file_name2 -white_space $white_space -direction "left" -img_dir "h"
            } else { 
@@ -71,7 +74,7 @@ $right_img_y = magick identify -format '%h' $file_name2
      # 이미지 가로 이어붙이기
             
            # 오른쪽 이미지의 세로 사이즈가 더 클 경우 // 작은 세로 사이즈로 맞춰줘야함
-           if ( $left_img_y -lt $right_img_y ) 
+           if ( [int]$left_img_y -lt [int]$right_img_y ) 
            {
              marge -big_size_image $file_name2 -result_img_x $left_img_x -result_img_y $left_img_y -img_file $file_name1 -white_space $white_space -direction "right" -img_dir "w"
            } else { 
