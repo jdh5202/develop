@@ -38,7 +38,7 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
     elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -append $cache_file_name $img_file $result_img_name }
 
     # 임시 이미지 파일 삭제
-    #Remove-Item $cache_file_name
+    Remove-Item $cache_file_name
 
     # 출력
     echo "Create $result_img_name"
