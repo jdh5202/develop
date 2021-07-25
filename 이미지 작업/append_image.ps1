@@ -18,7 +18,6 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
     $cache_img_size = ""
     if ( $img_dir -eq "w" ) { $cache_img_size = [String](([Int]$cache_file_x)+$white_space) + "x" + $cache_file_y }
     elseif ( $img_dir -eq "h" ) { $cache_img_size = $cache_file_x + "x" + [String](([int]$cache_file_y+$white_space)) }
-    echo $cache_img_size
 
     # 임시 이미지 파일에 여백 추가
     ## 가로
@@ -65,7 +64,7 @@ $right_img_y = magick identify -format '%h' $file_name2
            if ( [int]$left_img_x -lt [int]$right_img_x ) 
            {  
               marge -big_size_image $file_name2 -result_img_x $left_img_x -result_img_y $left_img_y -img_file $file_name1 -white_space $white_space -direction "left" -img_dir "h"
-           } else { echo "hi"
+           } else { 
               marge -big_size_image $file_name1 -result_img_x $right_img_x -result_img_y $right_img_y -img_file $file_name2 -white_space $white_space -direction "right" -img_dir "h"
            }
 
