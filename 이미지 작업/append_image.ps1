@@ -74,7 +74,6 @@ $right_img_y = magick identify -format '%h' $file_name2
            {  
               marge -big_size_image $file_name2 -result_img_x $left_img_x -result_img_y $left_img_y -img_file $file_name1 -white_space $white_space -direction "left" -img_dir "h"
            } else { 
-           echo "aaa"
               marge -big_size_image $file_name1 -result_img_x $right_img_x -result_img_y $right_img_y -img_file $file_name2 -white_space $white_space -direction "right" -img_dir "h"
            }
 
