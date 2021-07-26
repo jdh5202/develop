@@ -1,4 +1,4 @@
-param([string]$file_name1, [string]$file_name2, [string]$direction, $white_space=10)
+param([string]$file_name1, [string]$file_name2, [string]$direction, $white_space=10, $delete_opt)
 
 function marge {
 Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [String]$img_file, [int]$white_space, [String]$direction, [String]$img_dir) 
@@ -42,6 +42,12 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
 
     # 임시 이미지 파일 삭제
     Remove-Item $cache_file_name
+
+    if ( $delete_opt -eq "d" )
+    {
+        Remove-Item $big_size_image
+        Remove-Item $img_file
+    }
 
     # 출력
     echo "Create $result_img_name"
@@ -87,6 +93,6 @@ $right_img_y = magick identify -format '%h' $file_name2
 } else {  
 echo ""
 echo "파일 이름을 입력하세요." 
-echo 'example> append_image.ps1 [image1.png], [image2.png], [direction(w,h)], [white_space(number(default-10))]'
+echo 'example> append_image.ps1 [image1.png], [image2.png], [direction(w,h)], [white_space(number(default-10))] [orignal img delete(d)]'
 echo ""
 }
