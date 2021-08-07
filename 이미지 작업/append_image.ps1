@@ -1,4 +1,4 @@
-param([string]$file_name1, [string]$file_name2, [string]$direction, $white_space=10, $delete_opt)
+param([string]$file_name1, [string]$file_name2, [string]$direction, $white_space=10, $delete_opt, $border)
 
 function marge {
 Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [String]$img_file, [int]$white_space, [String]$direction, [String]$img_dir) 
@@ -14,6 +14,12 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
     
     magick convert $big_size_image -resize $result_img -quality 100 $cache_file_name
    
+    if ( $border -eq "b" ) 
+    {
+        magick.exe convert $img_file -bordercolor black -border 2 ("border_"+$img_file)
+        magick.exe convert $cache_file_name -bordercolor black -border 2 $cache_file_name
+    }
+
     # 임시 이미지 파일 사이즈 획득
     $cache_file_x = magick identify -format '%w' $cache_file_name
     $cache_file_y = magick identify -format '%h' $cache_file_name
@@ -24,21 +30,37 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
 
     # 임시 이미지 파일에 여백 추가
     ## 가로
-    if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity west -composite $cache_file_name }
-    elseif ( $direction -eq "right" -and $img_dir -eq "w" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity east -composite $cache_file_name } 
+    if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity east -composite $cache_file_name }
+    elseif ( $direction -eq "right" -and $img_dir -eq "w" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity west -composite $cache_file_name } 
     
     ## 세로
-    if ( $direction -eq "left" -and $img_dir -eq "h" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity south -composite $cache_file_name }
-    elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity north -composite $cache_file_name }
+    if ( $direction -eq "left" -and $img_dir -eq "h" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity north -composite $cache_file_name }
+    elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -size $cache_img_size xc:white $cache_file_name -gravity south -composite $cache_file_name }
 
     # 이미지 이어붙이기
-    ## 가로
-    if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert +append $cache_file_name $img_file $result_img_name }
-    elseif ( $direction -eq "right" -and $img_dir -eq "w" ) { magick convert +append $img_file $cache_file_name $result_img_name }
     
-    ## 세로
-    if ( $direction -eq "left" -and $img_dir -eq "h" ) { magick convert -append $img_file $cache_file_name $result_img_name }
-    elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -append $cache_file_name $img_file $result_img_name }
+    ## 테두리 존재
+    if ( $border -eq "b")
+    {
+        ### 가로
+        if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert +append ("border_"+$img_file) $cache_file_name $result_img_name }
+        elseif ( $direction -eq "right" -and $img_dir -eq "w" ) { magick convert +append $cache_file_name ("border_"+$img_file) $result_img_name }
+        ### 세로
+        if ( $direction -eq "left" -and $img_dir -eq "h" ) { magick convert -append $cache_file_name ("border_"+$img_file) $result_img_name }
+        elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -append ("border_"+$img_file) $cache_file_name $result_img_name }
+        remove-item ("border_"+$img_file)
+
+    } else {
+
+    ## 테두리 x
+        ### 가로
+        if ( $direction -eq "left" -and $img_dir -eq "w" ) { magick convert +append $img_file $cache_file_name $result_img_name }
+        elseif ( $direction -eq "right" -and $img_dir -eq "w" ) { magick convert +append $cache_file_name $img_file $result_img_name }
+        ### 세로
+        if ( $direction -eq "left" -and $img_dir -eq "h" ) { magick convert -append $cache_file_name $img_file $result_img_name }
+        elseif ( $direction -eq "right" -and $img_dir -eq "h" ) { magick convert -append $img_file $cache_file_name $result_img_name }
+    }
+    
 
     # 임시 이미지 파일 삭제
     Remove-Item $cache_file_name
@@ -58,13 +80,32 @@ Param ([String]$big_size_image, [String]$result_img_x, [String]$result_img_y, [S
 if ( $file_name1 -ne "" -and $file_name2 -ne "" )
 {
 
-$file_name1 = $file_name1 -replace '.\\',''
-$file_name2 = $file_name2 -replace '.\\',''
+# singleinstance, delete single quarter
+## get only filename
+$dir1 = Split-Path $file_name1 -Qualifier
+$dir2 = Split-Path $file_name2 -Qualifier
+$file_name1 = Split-Path $file_name1 -leaf
+$file_name2 = Split-Path $file_name2 -leaf
+
+#if ( (Test-Path "$file_name1") -eq $false ) 
+#{ 
+#  $stmp1 = $dir1 + "'" + $file_name1 + "'"
+#  echo $stmp1
+#  Rename-Item "$stmp1" -NewName $file_name1
+#}
+#if ( (Test-Path "$file_name2") -eq $false ) 
+#{
+#  $stmp2 = $dir1 + "'" + $file_name2 + "'"
+#  echo $stmp2
+#  Rename-Item "$stmp2" -NewName $file_name2
+#}
+
 
 $left_img_x = magick identify -format '%w' $file_name1
 $left_img_y = magick identify -format '%h' $file_name1
 $right_img_x = magick identify -format '%w' $file_name2
 $right_img_y = magick identify -format '%h' $file_name2
+
 
     # 이미지 세로 이어붙이기
     if ( $direction -eq 'h' ) 
@@ -92,6 +133,7 @@ $right_img_y = magick identify -format '%h' $file_name2
 } else {  
 echo ""
 echo "파일 이름을 입력하세요." 
-echo 'example> append_image.ps1 [image1.png], [image2.png], [direction(w,h)], [white_space(number(default-10))] [orignal img delete(d)]'
+echo 'example> append_image.ps1 [img1.png], [img2.png], [direction(w,h)], [white_space(number(default-10))] [orignal img delete(d)] [border(b)]'
+echo "example> append_image.ps1 a.png b.png w 5 d b"
 echo ""
 }
