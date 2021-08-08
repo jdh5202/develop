@@ -129,7 +129,7 @@ Windows Registry Editor Version 5.00
 @="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 100 d"
 
 [HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9 110-110 ]
-"MUIVerb"="110x110(&9)"
+"MUIVerb"="110-110(&9)"
 "icon"="C:\\Tools\\contextmenu_icon\\4.ico"
 
 [HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9 110-110 \command]
