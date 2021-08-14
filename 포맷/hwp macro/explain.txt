@@ -1,0 +1,2 @@
+Alt+1 = board_an_size
+Alt+2 = Detail_Paragraph
