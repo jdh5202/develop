@@ -1,0 +1,168 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge]
+"MUIVerb"="Auto-merge(&1)"
+"SubCommands"=""
+"icon"="C:\\Tools\\contextmenu_icon\\1.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\1 width]
+"MUIVerb"="width(&1)"
+"icon"="C:\\Tools\\contextmenu_icon\\8.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\1 width\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 7 --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\2 height]
+"MUIVerb"="height(&2)"
+"icon"="C:\\Tools\\contextmenu_icon\\7.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\2 height\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 7 --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\3 width and delete]
+"MUIVerb"="width and delete(&3)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\3 width and delete\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 7 d --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\4 height and delete]
+"MUIVerb"="height and delete(&4)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\4 height and delete\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 7 d --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\5 width board]
+"MUIVerb"="width board(&5)"
+"icon"="C:\\Tools\\contextmenu_icon\\9.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\5 width board\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 7 x b --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\6 heigh board]
+"MUIVerb"="heigh board(&6)"
+"icon"="C:\\Tools\\contextmenu_icon\\9.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\6 heigh board\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 7 x b --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\7 width board and delete]
+"MUIVerb"="width board and delete(&7)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\7 width board and delete\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 7 d b --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\8 height board and delete]
+"MUIVerb"="height board and delete(&8)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\8 height board and delete\command]
+@="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 7 d b --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img]
+"MUIVerb"="resize-img(&2)"
+"SubCommands"=""
+"icon"="C:\\Tools\\contextmenu_icon\\2.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\1 90%]
+"MUIVerb"="90%(&1)"
+"icon"="C:\\Tools\\contextmenu_icon\\6.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\1 90%\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 100 d"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\2 80%]
+"MUIVerb"="80%(&2)"
+"icon"="C:\\Tools\\contextmenu_icon\\6.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\2 80%\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 80 100"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\3 90% delete]
+"MUIVerb"="90% delete(&3)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\3 90% delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 100 d"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\4 80% delete]
+"MUIVerb"="80% delete(&4)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\4 80% delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 80 100 d"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\5 90-90%]
+"MUIVerb"="90-90%(&5)"
+"icon"="C:\\Tools\\contextmenu_icon\\6.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\5 90-90%\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 90"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\6 90-90% delete]
+"MUIVerb"="90-90% delete(&6)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\6 90-90% delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 90 d"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\7 110%]
+"MUIVerb"="110%(&7)"
+"icon"="C:\\Tools\\contextmenu_icon\\4.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\7 110%\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 100"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\8 110% delete]
+"MUIVerb"="110% delete(&8)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\8 110% delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 100 d"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9 110-110 ]
+"MUIVerb"="110-110(&9)"
+"icon"="C:\\Tools\\contextmenu_icon\\4.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9 110-110 \command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 110"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9-1 110-110 delete]
+"MUIVerb"="110-110 delete(&0)"
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9-1 110-110 delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 110 d"
+
+[HKEY_CLASSES_ROOT\*\shell\3 margin-img]
+"MUIVerb"="margin-img(&3)"
+"icon"="C:\\Tools\\contextmenu_icon\\11.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\3 margin-img\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"margin_image.ps1\" \"'%1'\""
+
+[HKEY_CLASSES_ROOT\*\shell\4 p4merge]
+"MultiSelectModel"="Player"
+"icon"="p4merge.exe"
+"MUIVerb"="p4merge"
+
+[HKEY_CLASSES_ROOT\*\shell\4 p4merge\Command]
+@="\"C:\\\\Tools\\singleinstance.exe\" \"%1\" \"C:\\Program Files\\Perforce\\p4merge.exe\" $files --si-timeout 400"
+
+[HKEY_CLASSES_ROOT\Directory\Background]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\compress-img]
+"icon"="C:\\Tools\\contextmenu_icon\\10.ico"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\compress-img\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"reduce_size.ps1\""
