@@ -65,25 +65,29 @@
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\8 height board and delete\command]
 @="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 7 d b --si-timeout 400"
 
+[HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9 width without margin]
+"icon"="C:\\Tools\\contextmenu_icon\\12.ico"
+"MUIVerb"="width without margin(&9)"
+
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9 width without margin\command]
 @="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 0 --si-timeout 400"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-1 height without margin]
-"MUIVerb"="10 height without margin(&0)"
+"MUIVerb"="height without margin(&0)"
 "icon"="C:\\Tools\\contextmenu_icon\\12.ico"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-1 height without margin\command]
 @="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files h 0 --si-timeout 400"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-2 width wihout margin delete]
-"MUIVerb"="11 width wihout margin delete(&a)"
+"MUIVerb"="width wihout margin delete(&a)"
 "icon"="C:\\Tools\\contextmenu_icon\\3.ico"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-2 width wihout margin delete\command]
 @="\"C:\\Tools\\singleinstance.exe\" \"'%1'\" \"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden  -ExecutionPolicy bypass \"append_image.ps1\" $files w 0 d --si-timeout 400"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-3 height wihout margin delete]
-"MUIVerb"="12 height wihout margin delete(&b)"
+"MUIVerb"="height wihout margin delete(&b)"
 "icon"="C:\\Tools\\contextmenu_icon\\3.ico"
 
 [HKEY_CLASSES_ROOT\*\shell\1 Auto-merge\shell\9-3 height wihout margin delete\command]
@@ -101,7 +105,7 @@
 "icon"="C:\\Tools\\contextmenu_icon\\6.ico"
 
 [HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\1 90%\command]
-@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 100 d"
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 90 100"
 
 [HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\2 80%]
 "MUIVerb"="80%(&2)"
@@ -173,12 +177,19 @@
 [HKEY_CLASSES_ROOT\*\shell\3 margin-img\command]
 @="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"margin_image.ps1\" \"'%1'\""
 
-[HKEY_CLASSES_ROOT\*\shell\4 p4merge]
+[HKEY_CLASSES_ROOT\*\shell\4 메모장으로 열기]
+"MUIVerb"="메모장으로 열기(&4)"
+"icon"="C:\\Windows\\System32\\notepad.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\4 메모장으로 열기\command]
+@="\"C:\\Windows\\System32\\notepad.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\5 p4merge]
 "MultiSelectModel"="Player"
 "icon"="p4merge.exe"
-"MUIVerb"="p4merge"
+"MUIVerb"="p4merge(&5)"
 
-[HKEY_CLASSES_ROOT\*\shell\4 p4merge\Command]
+[HKEY_CLASSES_ROOT\*\shell\5 p4merge\Command]
 @="\"C:\\\\Tools\\singleinstance.exe\" \"%1\" \"C:\\Program Files\\Perforce\\p4merge.exe\" $files --si-timeout 400"
 
 [HKEY_CLASSES_ROOT\Directory\Background]
