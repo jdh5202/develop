@@ -1,4 +1,4 @@
-﻿Windows Registry Editor Version 5.00
+Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\*\shell]
 
@@ -184,12 +184,19 @@
 [HKEY_CLASSES_ROOT\*\shell\4 메모장으로 열기\command]
 @="\"C:\\Windows\\System32\\notepad.exe\" \"%1\""
 
-[HKEY_CLASSES_ROOT\*\shell\5 p4merge]
+[HKEY_CLASSES_ROOT\*\shell\5 픽픽으로 열기]
+"MUIVerb"="픽픽으로 열기(&5)"
+"icon"="\"C:\\Program Files (x86)\\PicPick\\PicPick.exe\""
+
+[HKEY_CLASSES_ROOT\*\shell\5 픽픽으로 열기\command]
+@="\"C:\\Program Files (x86)\\PicPick\\PicPick.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\6 p4merge]
 "MultiSelectModel"="Player"
 "icon"="p4merge.exe"
-"MUIVerb"="p4merge(&5)"
+"MUIVerb"="p4merge(&6)"
 
-[HKEY_CLASSES_ROOT\*\shell\5 p4merge\Command]
+[HKEY_CLASSES_ROOT\*\shell\6 p4merge\Command]
 @="\"C:\\\\Tools\\singleinstance.exe\" \"%1\" \"C:\\Program Files\\Perforce\\p4merge.exe\" $files --si-timeout 400"
 
 [HKEY_CLASSES_ROOT\Directory\Background]
