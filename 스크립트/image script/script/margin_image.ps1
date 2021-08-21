@@ -2,8 +2,6 @@ param([string]$file_name, [string]$size)
 
 if ( $file_name -ne ""  )
 {
-    $file_name = $file_name -replace '.\\',''
-
     $height = magick identify -format '%h' $file_name
     
     if ($size -eq "") { $size = "1480x" + $height }
