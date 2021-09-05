@@ -170,6 +170,13 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9-1 110-110 delete\command]
 @="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 110 110 d"
 
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9-2 18% delete]
+"icon"="C:\\Tools\\contextmenu_icon\\3.ico"
+"MUIVerb"="18-18 delete(&a)"
+
+[HKEY_CLASSES_ROOT\*\shell\2 resize-img\shell\9-2 18% delete\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"zoomin_out.ps1\" \"'%1'\" 18 18 d"
+
 [HKEY_CLASSES_ROOT\*\shell\3 margin-img]
 "MUIVerb"="margin-img(&3)"
 "icon"="C:\\Tools\\contextmenu_icon\\11.ico"
@@ -203,8 +210,30 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell]
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\compress-img]
-"icon"="C:\\Tools\\contextmenu_icon\\10.ico"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\1 메모장]
+"MUIVerb"="메모장(&1)"
+"icon"="C:\\Windows\\SysWow64\\notepad.exe"
 
-[HKEY_CLASSES_ROOT\Directory\Background\shell\compress-img\command]
+[HKEY_CLASSES_ROOT\Directory\Background\shell\1 메모장\command]
+@="notepad.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\2 RaiDrive]
+"MUIVerb"="RaiDrive(&2)"
+"icon"="C:\\Program Files\\OpenBoxLab\\RaiDrive\\RaiDrive.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\2 RaiDrive\command]
+@="C:\\Program Files\\OpenBoxLab\\RaiDrive\\RaiDrive.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\3 여기에서 명령 창 열기]
+"MUIVerb"="여기에서 명령 창 열기(&3)"
+"icon"="cmd.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\3 여기에서 명령 창 열기\command]
+@="\"cmd.exe\" /s /k pushd \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\4 compress-img]
+"icon"="C:\\Tools\\contextmenu_icon\\10.ico"
+"MUIVerb"="Compress-img(&4)"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\4 compress-img\command]
 @="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"reduce_size.ps1\""
