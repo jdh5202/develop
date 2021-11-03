@@ -22,3 +22,5 @@ End Sub
  End With
  Next
  End Sub
+
+' Alt+1(사진크기),Alt+2(본문내용),Alt+3(본문음영),Alt+4(본문수행과정),Alt+5(모든사진테두리)
