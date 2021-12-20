@@ -1,34 +1,47 @@
-Gui, Add, Button, x562 y102 w60 h25 gPat, ì„ íƒ
-Gui, Add, Text, x42 y65 w50 h0 , Text
-Gui, Add, Text, x22 y69 w130 h20 , m3u8 ì˜ìƒ ë§í¬ ì£¼ì†Œ
-Gui, Add, Text, x262 y29 w150 h20 , m3u8 ì˜ìƒ ì¶”ì¶œ ìŠ¤í¬ë¦½íŠ¸
-Gui, Add, Text, x22 y109 w130 h20 , ë™ì˜ìƒ ì €ì¥ í´ë”
-Gui, Add, Text, x22 y149 w130 h20 , ë™ì˜ìƒ íŒŒì¼ ì´ë¦„
-Gui, Add, Edit, x162 y66 w390 h20 vICTN_LK, 
 Gui, Add, Edit, x162 y106 w390 h20 vMV_FPATH, %A_scriptDir%
+IfExist, m3u8_scr.INI
+{
+iniRead, dirpth_var, m3u8_scr.ini, Section, dirpth
+GuiControl,,MV_FPATH,%dirpth_var%
+}
+
+
+Gui, Add, Button, x562 y102 w60 h25 gPat, ¼±ÅÃ
+Gui, Add, Text, x42 y65 w50 h0 , Text
+Gui, Add, Text, x22 y69 w130 h20 , m3u8 ¿µ»ó ¸µÅ© ÁÖ¼Ò
+Gui, Add, Text, x262 y29 w150 h20 , m3u8 ¿µ»ó ÃßÃâ ½ºÅ©¸³Æ®
+Gui, Add, Text, x22 y109 w130 h20 , µ¿¿µ»ó ÀúÀå Æú´õ
+Gui, Add, Text, x22 y149 w130 h20 , µ¿¿µ»ó ÆÄÀÏ ÀÌ¸§
+Gui, Add, Edit, x162 y66 w390 h20 vm3u8_LK, 
+
 Gui, Add, Edit, x162 y146 w390 h20 vFname, file_name
-Gui, Add, Button, x292 y189 w80 h30 gExtract, ì˜ìƒì¶”ì¶œ
+Gui, Add, Button, x292 y189 w80 h30 gExtract, ¿µ»óÃßÃâ
 GuiControl, Disable, MV_FPATH
-GuiControl, focus, ICTN_LK
+GuiControl, focus, m3u8_LK
+
 SendInput,^v{Enter}
 
 ; Generated using SmartGUI Creator 4.0
-Gui, Show, x525 y248 h229 w657, ICTN ì˜ìƒ ì¶”ì¶œ ìŠ¤í¬ë¦½íŠ¸
+Gui, Show, x525 y248 h229 w657, m3u8 ¿µ»ó ÃßÃâ ½ºÅ©¸³Æ®
 
 Return
 
 GuiClose:
+Gui,Submit,nohide
+IniWrite, %MV_FPATH%, m3u8_scr.ini, Section, dirpth
 ExitApp
 
 
 Pat:
 {  
     FileSelectFolder,MV_FPATH
-    
+
+    IniWrite, %MV_FPATH%, m3u8_scr.ini, Section, dirpth
     if (!MV_FPATH)
     {
         MV_FPATH = C:\Users\%A_USERNAME%\Desktop
     }
+
     GuiControl,,MV_FPATH,%MV_FPATH%
    return
 }
@@ -37,6 +50,14 @@ Extract:
 { 
 Gui,Submit,nohide
 
-   Run, %comspec% /c cd "%MV_FPATH%" & ffmpeg -i "%ICTN_LK%" -c copy "%Fname%.ts"
+   Run, %comspec% /c cd "%MV_FPATH%" & ffmpeg -i "%m3u8_LK%" -c copy "%Fname%.ts"
   return
+}
+
+ini_rd:
+{
+Gui,Submit,nohide
+iniRead, dirpth_var, m3u8_scr.ini, dirpth
+msgbox %dirpth_var%
+return
 }
