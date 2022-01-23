@@ -3,6 +3,10 @@ from PyQt5.QtWidgets import *
 from PyQt5 import QtCore, uic
 from PyQt5.QtCore import *
 from PyQt5 import QtTest
+import telegram
+from telegram.ext import Updater
+from telegram.ext import CommandHandler
+
 
 form_class = uic.loadUiType("pyui.ui")[0]
 # pip install opencv-python, pyautogui==0.9.38, image, partial
@@ -25,7 +29,7 @@ global go_screen
 go_screen=30
 
 global go_lobby
-go_lobby=270
+go_lobby=290
 
 global go_work
 go_work=9000
@@ -87,7 +91,7 @@ def connect_wallet(self):
                 continue
             #excute_func(self,'password',waiting)
             #excute_func(self,'sign',waiting)
-            #pyautogui.typewrite('me4v8ff2y3!', interval=0.1)
+            #pyautogui.typewrite('a', interval=0.1)
             
             loading_check = excute_func(self,'loading',35)
             if (loading_check==True):
@@ -110,7 +114,7 @@ def time_sleep(self):
     global go_lobby
     global go_work
 
-    QtTest.QTest.qWait(600)
+    QtTest.QTest.qWait(850)
     trasure_time+=1
     self.screen.setText( str( ( go_screen - trasure_time  ) % go_screen) )
     self.lobby.setText( str( (go_lobby - trasure_time ) % go_lobby) )
@@ -119,10 +123,12 @@ def time_sleep(self):
     if ( trasure_time % go_screen == 0 ): # 화면 유지용 클릭 시간
         screen_check(self)
     if ( trasure_time % go_lobby == 0 ):
-        excute_func(self,'golobby',1)
-        excute_func(self,'golobby',1)
-        excute_func(self,'trasureh',2)
-        excute_func(self,'trasureh',1)
+        #excute_func(self,'golobby',1)
+        #excute_func(self,'golobby',1)
+        #excute_func(self,'trasureh',2)
+        #excute_func(self,'trasureh',1)
+        connect_wallet(self) # 그냥 새로고침
+        
     
     if ( trasure_time % go_work == 0 ): # 2시간 반마다 캐릭터 work
         work_heroes(self)
@@ -154,6 +160,9 @@ def object_check(img_path):
     else:
         return False
 
+def refresh():
+    oa = 1
+
 def trasure_map(self):
 
     global confid
@@ -172,7 +181,7 @@ def click_object(img_path):
         return False
     return img_path # current_working
 
-    
+
 
 if __name__ == '__main__':    
     app = QApplication(sys.argv)
