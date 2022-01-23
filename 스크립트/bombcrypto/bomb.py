@@ -88,7 +88,7 @@ def connect_wallet(self):
                 continue
             #excute_func(self,'password',waiting)
             #excute_func(self,'sign',waiting)
-            #pyautogui.typewrite('me4v8ff2y3!', interval=0.1)
+            #pyautogui.typewrite('a', interval=0.1)
             
             loading_check = excute_func(self,'loading',50)
             if (loading_check==True):
