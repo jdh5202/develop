@@ -3,9 +3,6 @@ from PyQt5.QtWidgets import *
 from PyQt5 import QtCore, uic
 from PyQt5.QtCore import *
 from PyQt5 import QtTest
-import telegram
-from telegram.ext import Updater
-from telegram.ext import CommandHandler
 
 
 form_class = uic.loadUiType("pyui.ui")[0]
@@ -29,7 +26,7 @@ global go_screen
 go_screen=30
 
 global go_lobby
-go_lobby=290
+go_lobby=300
 
 global go_work
 go_work=9000
@@ -91,14 +88,18 @@ def connect_wallet(self):
                 continue
             #excute_func(self,'password',waiting)
             #excute_func(self,'sign',waiting)
-            #pyautogui.typewrite('a', interval=0.1)
+            #pyautogui.typewrite('me4v8ff2y3!', interval=0.1)
             
-            loading_check = excute_func(self,'loading',35)
+            loading_check = excute_func(self,'loading',50)
             if (loading_check==True):
                 self.textarea.append('[*] enter game')
                 excute_func(self,'trasureh',5)
                 excute_func(self,'trasureh',5)
                 break
+            else:
+                screen_check(self)
+                pyautogui.hotkey('ctrl', 'F5')
+ 
         
 
 def screen_check(self):
