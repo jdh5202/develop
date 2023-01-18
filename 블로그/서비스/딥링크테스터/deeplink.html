@@ -1,0 +1,25 @@
+<fieldset>
+    <legend>Deeplink 입력</legend>
+    <input type="url" id="deeplink" placeholder="schema://host/path?parameter=data" onkeyup="exec(id)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+</fieldset>
+<div id="link">
+  
+</div>
+
+<style>
+    fieldset > input{
+        border: none;
+        outline: none;
+        width:100%;
+    }
+</style>
+
+<script>
+var link = document.getElementById("link");
+
+function exec(id){
+  
+    var url = document.getElementById(id);
+    link.innerHTML = "<a href='" + url.value + "' style='color:magenta' target='_blank'>" + url.value + "</a>";
+}
+</script>
