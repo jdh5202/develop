@@ -10,6 +10,25 @@ Set-Location $scriptPath
 
 
 $default_css_code = "<style>
+#tt-body-page figure.imageblock img, figure.imageblock img,
+figure.imageblock img {
+   display: inline-block;
+   max-width: 100% !importent;
+   margin: 0;
+   height: auto;
+   /*border: 1px solid #ffffff;*/
+	 border-radius: 10px;
+   box-sizing: border-box;
+	 box-shadow: 0 0 0 2px #fef inset;
+   padding: 10px;
+}
+	div {
+	font-size:13pt;
+  font-weight:bold;
+	color:white;
+  letter-spacing: 0.02em;
+  line-height: 1.8;	
+	}
 #custom_code_text {
   font-size:13pt;
   font-weight:bold;
@@ -48,12 +67,13 @@ $default_css_code = "<style>
     margin: 20px 0 5px;
     font-size: 16pt;
     line-height: 1.9;
-    color: #5058bd;
-    border-bottom: 2px solid #5058bd;
+	color: #B2CCFF !important;
+    border-bottom: 2px solid #B2CCFF !important;
     display:inline-block;
     font-family: 'LotteMartHappy','Youth','Jeju Gothic', '본고딕','Arial', '나눔바른고딕','나눔고딕';
     font-weight: bold;
 }
+
 #custom_code_mark {
     background-color: #CCFDCC;
     padding: 2px 4px;
@@ -104,8 +124,6 @@ margin: 7px 0;
 font-family: 'Youth','Jeju Gothic', '본고딕', '나눔바른고딕','나눔고딕';
 }
 </style>"
-
-
 
 
 Add-Type -AssemblyName System.Windows.Forms
