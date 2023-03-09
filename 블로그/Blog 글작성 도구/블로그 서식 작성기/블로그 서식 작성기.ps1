@@ -57,7 +57,7 @@ figure.imageblock img {
     border-bottom-left-radius: 21px;
     border-bottom-right-radius: 6px;
     line-height: 1.6;
-    color: #00afff;
+    color: #00afff !important;
     font-family: 'LotteMartHappy','Youth','Jeju Gothic', '본고딕','Arial', '나눔바른고딕','나눔고딕';
     font-weight: bold;
     display:inline-block; 
