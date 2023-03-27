@@ -1,0 +1,152 @@
+/* apk upload area */
+ ._1IRv4 {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 24px;
+    width: 90%;
+    height: 320px;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    background-color: #fff;
+    border-radius: 6px 6px 6px 6px;
+    border: 2px dashed #d2d3d4;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-line-pack: center;
+    -ms-flex-align: center
+}
+
+._1IRv4,._1IRv4>div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-content: center;
+    -webkit-box-align: center;
+    align-items: center
+}
+
+._1IRv4>div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-line-pack: center;
+    -ms-flex-align: center;
+    color: #7e838e;
+    line-height: 20px;
+    font-size: 13px;
+    color: #2c7dfa
+}
+
+._1IRv4>div>svg {
+    width: 30px;
+    height: 30px;
+    fill: #d8d8d8
+}
+
+._1IRv4>div>p {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e1f22;
+    line-height: 18px;
+    margin-top: 22px
+}
+
+.oLdaP {
+    margin-top: 23px;
+    width: 200px;
+    height: 40px;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 24px;
+    overflow: hidden
+}
+
+._12bmg {
+    display: inline-block;
+    content: "";
+    width: 500%;
+    height: 100%;
+    background: linear-gradient(130deg,#2c7dfa,#1559f7 20%,#2c7dfa 40%,#1559f7 60%,#2c7dfa 80%,#1559f7);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-animation: pLDEj 6s linear infinite;
+    animation: pLDEj 6s linear infinite
+}
+
+.oLdaP span {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+
+.oLdaP:hover {
+	background-color: rgba(0,255,255,0.8) !important;
+	border-radius: 2px;
+	  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+
+/* File Info */
+.container-fluid {
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align:left;
+}
+
+.col-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+    text-align:left;
+}
