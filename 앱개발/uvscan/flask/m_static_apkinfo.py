@@ -7,11 +7,11 @@ import subprocess
 import hashlib
 import re
 
-step1_apkinfo = Blueprint('step1_apkinfo', __name__)
+m_static_apkinfo = Blueprint('m_static_apkinfo', __name__)
 
 def search_files(root_path, target_str_list):
     results = {}
-    lock = threading.Lock()  
+    lock = threading.Lock()
 
     # helper function to process file
     def process_file(file_path):
@@ -165,7 +165,7 @@ analyzer = ApkAnalyzer()
 
 
     
-@step1_apkinfo.route('/Apk_Analysis_view', methods = ['GET'])
+@m_static_apkinfo.route('/Apk_Analysis_view', methods = ['GET'])
 def result():
     apkfile= config.G_path['apkfile']
     apk_file_path = config.G_path['apk_file_path']
@@ -176,6 +176,5 @@ def result():
     step4 = analyzer.mstep4_deeplink_chk()
     step5 = analyzer.mstep5_webview_chk()
     step6 = analyzer.mstep6_url_chk()
-   
     
-    return render_template("apk_analysis_result.html", step1=step1, step2=step2, step3=step3, step4=step4, step5=step5, step6=step6)
+    return render_template("mob_static_analysis/m_static_result.html", step1=step1, step2=step2, step3=step3, step4=step4, step5=step5, step6=step6)

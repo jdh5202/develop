@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Logcat</title>
+</head>
+<body>
+  <div id="logcat"></div>
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"></script>
+  <script type="text/javascript">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+    socket.on('connect', function() {
+        socket.emit('logcat_connect');
+    });
+
+    socket.on('logcat_data', function(data) {
+        var logcat_div = document.getElementById('logcat');
+        var p = document.createElement('p');
+        p.appendChild(document.createTextNode(data));
+        logcat_div.appendChild(p);
+    });
+</script>
+</body>
+</html>
