@@ -7,6 +7,17 @@
 <body>
   <div id="logcat"></div>
 
+  <table id="running_apps_table" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">PID</th>
+        <th scope="col">이름</th>
+        <th scope="col">식별자</th>
+      </tr>
+    </thead>
+  </table>
+
+
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.js"></script>
   <script type="text/javascript">
@@ -21,7 +32,13 @@
         var p = document.createElement('p');
         p.appendChild(document.createTextNode(data));
         logcat_div.appendChild(p);
+        console.log(data);
     });
+
+  
 </script>
 </body>
 </html>
+
+
+

@@ -27,15 +27,14 @@ function byteConvertor(bytes) {
 
 
 function ext_chk(frm){
-	
+
     var isFrm = document.getElementById('frm');
     var isData = new FormData(isFrm);
     
-    
-    // // 업로드 할 수 있는 파일 확장자를 제한합니다.	
+    // 업로드 할 수 있는 파일 확장자를 제한합니다.	
     var extArray = new Array("apk");
-    var path = frm.value;
-    
+    var path = frm[0].name;
+    console.log(path);
     if (path == "") {
             if (path == "") {
             alert("파일을 선택해 주세요.");
@@ -76,4 +75,3 @@ function getExtension(fileName) {
     var fileExtension = fileName.substring(lastDot+1, fileLength);
     return fileExtension;
 }
-

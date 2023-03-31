@@ -11702,4 +11702,209 @@ body {
   border-radius: 0.25rem !important;
 }
 
+/* 드래그 앤 드롭 영역 스타일 */
+/*  */
 
+/* 드래그 앤 드롭 영역에 마우스 오버 시 스타일 */
+#uploadArea:hover {
+  background-color: #e9ecef; /* 배경색 변경 */
+}
+#uploadArea.dragging {
+  background-color: #ccffcc; /* 배경색 변경 */
+}
+
+#table-container {
+  background-color: #f9f9f9;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  background-color: #fff;
+}
+
+#table-container th,
+#table-container td {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+#table-container th {
+  background: rgba(225, 245, 254, 0.2);
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+#table-container tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+#table-container tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  top:35%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 3;
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.modal-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-footer {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.modal-content p {
+  margin: 10px 0 !important;
+}
+
+.modal-content .execute-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+  
+.modal-content .execute-btn:hover {
+  background-color: #0069d9;
+}
+  
+.modal-content .execute-btn:active {
+  background-color: #0053a3;
+}
+  
+.modal-content p:not(:last-child) {
+  margin-bottom: 10px !important;
+}
+
+.highlight {
+  background-color: rgba(135, 206, 235, 0.3); /* 연한 하늘색 */
+  transition: background-color 0.3s ease-out; /* 배경색이 서서히 사라지도록 효과를 추가하세요. */
+  font-size: 18px; /* 글자 크기를 변경하세요. */
+  line-height: 24px; /* 줄 간격을 조절하세요. */
+  font-weight: bold;
+}
+
+
+/* div 스크롤바 스타일 */
+#search-container::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 설정 */
+}
+
+#search-container::-webkit-scrollbar-thumb {
+  background-color: rgba(50, 50, 50, 0.8); /* 스크롤바 색상 설정 */
+  border-radius: 5px; /* 스크롤바 모서리 둥글게 설정 */
+}
+
+#search-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(70, 70, 70, 0.8); /* 마우스 오버 시 스크롤바 색상 변경 */
+}
+#search-container p {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  margin: 5px 0;
+}
+
+#search {
+  position: fixed;
+  top: calc(100% - 6.5rem);
+  right: 20px; 
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

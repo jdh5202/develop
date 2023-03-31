@@ -23,55 +23,58 @@ def get_running_apps():
         print(f"Error: {error}")
         return []
     app_lines = app_data.strip().split('\n')[2:]
-    running_apps = [line for line in app_lines if re.match(r'\s*\d', line)]
+    running_apps = []
+
+    for line in app_lines:
+        line_parts = line.strip().split()
+        if len(line_parts) >= 3 and line_parts[0].isdigit():
+            pid = line_parts[0]
+            name = ' '.join(line_parts[1:-1])
+            identifier = line_parts[-1]
+            running_apps.append({'pid': pid, 'name': name, 'identifier': identifier})
     return running_apps
 
-@socketio.on('request_running_apps')
+
+@socketio.on("request_running_apps")
 def handle_request_running_apps():
     running_apps = get_running_apps()
+    app_data = []
     for app in running_apps:
-        socketio.emit('running_apps_data', app)
-        
-@socketio.on('request_logcat')
-def handle_request_logcat(app_package):
-    logcat(app_package)
-    
-@m_dynamic_adb.route('/logcat/<app_package>')
-def logcat(app_package):
+        pid = app["pid"]
+        name = app["name"]
+        identifier = app["identifier"]
+        app_data.append({"pid": pid, "name": name, "identifier": identifier})
+    socketio.emit("running_apps_data", app_data)
 
+
+def logcat(app_pid):
+    print("logcat() called")
     device_id = get_device_id()
+    print(f"Device ID: {device_id}")
 
-    # 앱 이름으로 PID 정보 검색
-    pid_command = f"adb -s {device_id} shell pidof -s {app_package}"
+    pid_command = f"adb -s {device_id} shell logcat -v time --pid={app_pid}"
     print(f"PID Command: {pid_command}")
-    pid_process = subprocess.Popen(pid_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, universal_newlines=True)
+    try:
+        pid_process = subprocess.Popen(pid_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, universal_newlines=True,encoding='utf-8')
+    except Exception as e:
+        print(f"Error occurred during subprocess.Popen: {e}")
 
-    # PID 정보 읽기
-    pid_data, pid_error = pid_process.communicate()
-    if pid_error:
-        print(f"PID Error: {pid_error}")
-        return render_template('error.html', message="PID Error occurred.")
+    logcat_command = f"adb -s {device_id} logcat -v time --pid={app_pid}"
+    print(f"Logcat Command: {logcat_command}")
+    logcat_process = subprocess.Popen(logcat_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, universal_newlines=True,encoding='utf-8')
+    if logcat_process is not None:
+        print("logcat_process initialized")
+    else:
+        print("logcat_process is still None")
 
-    # PID 정보가 없을 경우 종료
-    if not pid_data:
-        print(f"No PID found for package: {app_package}")
-        return render_template('error.html', message="No PID found for package.")
+    return logcat_process
 
-    # PID 정보를 사용하여 logcat 명령어 실행
-    pid = pid_data.strip()
-    logcat_command = f"adb -s {device_id} logcat -v time --pid {pid}"
-    # print(f"Logcat Command: {logcat_command}")
-    logcat_process = subprocess.Popen(logcat_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, universal_newlines=True)
-    
-    # logcat 결과 출력
-    @socketio.on('logcat_connect')
-    def emit_logcat_data():
-        try:
-            for line in iter(logcat_process.stdout.readline, ''):
-                socketio.emit('logcat_data', line.strip())
-        except KeyboardInterrupt:
-            logcat_process.kill()
+@socketio.on('request_logcat')
+def handle_request_logcat(app_pid):
+    logcat_process = logcat(app_pid)
 
-    socketio.start_background_task(target=emit_logcat_data)
-
-    return render_template('mob_dynamic_analysis/m_dynamic_result.html')
+    while True:
+        output_line = logcat_process.stdout.readline()
+        socketio.emit('logcat_output',output_line)
+        if not output_line:
+            break
