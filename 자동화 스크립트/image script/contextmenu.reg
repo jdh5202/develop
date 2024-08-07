@@ -210,3 +210,10 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\4 compress-img\command]
 @="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -WindowStyle Hidden -ExecutionPolicy bypass \"reduce_size.ps1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\AstroGrep]
+"MUIVerb"="AstroGrep(&4)"
+"icon"="C:\\Program Files (x86)\\AstroGrep\\AstroGrep.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\AstroGrep\command]
+@="\"C:\\Program Files (x86)\\AstroGrep\\AstroGrep.exe\" /spath=\"%1\""
